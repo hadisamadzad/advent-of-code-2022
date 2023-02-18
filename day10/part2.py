@@ -28,13 +28,13 @@ register = 1
 for op in ops:
     cycle_count = 0
     has_register_update = False
-    
+
     if op.startswith('addx'):
         cycle_count = 2
         has_register_update = True
     elif op.startswith('noop'):
         cycle_count = 1
-    
+
     for i in range(cycle_count):
         (cycle, crt) = do_cycle(cycle, register, crt)
     if has_register_update:

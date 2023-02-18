@@ -32,15 +32,15 @@ for line in lines[0 : init_layer_count]:
 print(stacks)
 
 # Move crates
-for line in lines[init_layer_count + 2 : len(lines)]:    
+for line in lines[init_layer_count + 2 : len(lines)]:
     move_items = int(line.split(' ')[1])
     from_stack_index = int(line.split(' ')[3]) - 1
     to_stack_index = int(line.split(' ')[5]) - 1
     for item in range(move_items):
         stacks[to_stack_index].append(stacks[from_stack_index].pop())
 
-top_lables = ''
+top_labels = ''
 for stack in stacks:
-    top_lables = top_lables + stack.pop()
+    top_labels = top_labels + stack.pop()
 
-print(top_lables)
+print(top_labels)

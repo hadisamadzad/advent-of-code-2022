@@ -8,12 +8,11 @@ for index, row in enumerate(trees):
 
 m = len(trees)
 n = len(trees[0])
-total_visibles = 2 * (m - 2) + 2 * (n - 2) + 4 
-# total_visibles = 0
+total_visible = 2 * (m - 2) + 2 * (n - 2) + 4
 
 for row in range(1, m - 1):
     for col in range(1, n - 1):
-        
+
         tree = int(trees[row][col])
 
         tops = []
@@ -21,7 +20,7 @@ for row in range(1, m - 1):
         for i in range(0, row):
             tops.append(int(trees[i][col]))
         if tree > max(tops):
-            total_visibles += 1
+            total_visible += 1
             continue
 
         bottoms = []
@@ -29,7 +28,7 @@ for row in range(1, m - 1):
         for i in range(row + 1, m):
             bottoms.append(int(trees[i][col]))
         if tree > max(bottoms):
-            total_visibles += 1
+            total_visible += 1
             continue
 
         lefts = []
@@ -37,7 +36,7 @@ for row in range(1, m - 1):
         for i in range(0, col):
             lefts.append(int(trees[row][i]))
         if tree > max(lefts):
-            total_visibles += 1
+            total_visible += 1
             continue
 
         rights = []
@@ -45,7 +44,7 @@ for row in range(1, m - 1):
         for i in range(col + 1, n):
             rights.append(int(trees[row][i]))
         if tree > max(rights):
-            total_visibles += 1
+            total_visible += 1
             continue
 
-print(total_visibles)
+print(total_visible)
